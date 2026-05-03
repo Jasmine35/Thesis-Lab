@@ -4,7 +4,7 @@
 # Output: Class assignments CSV, model fit table CSV, trajectory plots
 # ==============================================================================
 
-# --- 1. Install & Load Packages -----------------------------------------------
+# --- 1. Install & Load Packages -------------------------------------------------
 
 required_packages <- c("tidyverse", "lcmm", "ggplot2", "gridExtra", "corrr")
 
