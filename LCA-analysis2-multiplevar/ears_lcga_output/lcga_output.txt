@@ -1,0 +1,156 @@
+> source("/Users/jasmine/Downloads/Thesis-Lab/LCGA.r", encoding = "UTF-8")
+Loading data...
+Participants: 11863 | Sessions retained: 6                                                                         
+
+Missingness per screen variable (across all retained rows):
+# A tibble: 5 × 2
+  variable                                  pct_na
+  <chr>                                     <chr> 
+1 nt_y_earsapp__mins_mean                   97.0% 
+2 nt_y_earsplt__mins__abcd__social_mean     100.0%
+3 nt_y_earsplt__mins__abcd__stream_mean     100.0%
+4 nt_y_earsapp__mins__andr__gameaction_mean 97.0% 
+5 nt_y_earskey__mins_sum                    92.5% 
+
+Step 1 — Per-participant OLS slopes & intercepts...
+
+Step 2 — Correlation matrix of slopes (checking for redundancy)...
+# A tibble: 5 × 6
+  term      nt_y_earsapp__mins_m…¹ nt_y_earsplt__mins__…² nt_y_earsplt__mins__…³
+  <chr>                      <dbl>                  <dbl>                  <dbl>
+1 nt_y_ear…                NA                          NA                     NA
+2 nt_y_ear…                NA                          NA                     NA
+3 nt_y_ear…                NA                          NA                     NA
+4 nt_y_ear…                 0.0439                     NA                     NA
+5 nt_y_ear…                 0.294                      NA                     NA
+# ℹ abbreviated names: ¹​nt_y_earsapp__mins_mean__slope,
+#   ²​nt_y_earsplt__mins__abcd__social_mean__slope,
+#   ³​nt_y_earsplt__mins__abcd__stream_mean__slope
+# ℹ 2 more variables: nt_y_earsapp__mins__andr__gameaction_mean__slope <dbl>,
+#   nt_y_earskey__mins_sum__slope <dbl>
+
+Variables retained after correlation check: total_screen, social_media, streaming, gaming, active_typing
+
+Step 3 — Standardizing outcome variables...
+Standardized variables:
+# A tibble: 1 × 10
+  nt_y_earsapp__mins_mean__z_mean nt_y_earsapp__mins_me…¹ nt_y_earsplt__mins__…²
+                            <dbl>                   <dbl>                  <dbl>
+1                       -4.52e-15                       1                    NaN
+# ℹ abbreviated names: ¹​nt_y_earsapp__mins_mean__z_sd,
+#   ²​nt_y_earsplt__mins__abcd__social_mean__z_mean
+# ℹ 7 more variables: nt_y_earsplt__mins__abcd__social_mean__z_sd <dbl>,
+#   nt_y_earsplt__mins__abcd__stream_mean__z_mean <dbl>,
+#   nt_y_earsplt__mins__abcd__stream_mean__z_sd <dbl>,
+#   nt_y_earsapp__mins__andr__gameaction_mean__z_mean <dbl>,
+#   nt_y_earsapp__mins__andr__gameaction_mean__z_sd <dbl>, …
+
+========== total_screen ==========
+  Non-NA observations: 1871 across 1391 subjects
+  Min class size threshold (5%): 70 subjects
+  Fitting 1 class(es)...
+  Fitting 2 class(es)...
+  Fitting 3 class(es)...
+  Fitting 4 class(es)...
+  Fitting 5 class(es)...
+  Fitting 6 class(es)...
+
+  Fit table for total_screen:
+# A tibble: 6 × 8
+  Variable     Classes LogLik   AIC   BIC SABIC Entropy Min_ClassSize
+  <chr>          <dbl>  <dbl> <dbl> <dbl> <dbl>   <dbl>         <int>
+1 total_screen       1 -2535. 5078. 5099. 5086.  NA                NA
+2 total_screen       2 -2500. 5013. 5050. 5028.   0.772            99
+3 total_screen       3 -2490. 4999. 5052. 5020.   0.62             64
+4 total_screen       4 -2476. 4979. 5047. 5005.   0.643            58
+5 total_screen       5 -2490. 5011. 5095  5044.   0.345            64
+6 total_screen       6 -2490. 5017. 5117. 5056.   0.32             64
+  → Optimal k = 2  |  BIC improvement over k=1: 49.0 points
+  Class sizes:
+assigned
+   1    2 
+1292   99 
+
+========== social_media ==========
+  SKIPPING: only 0 observations / 0 subjects with non-NA values.
+  → Check that the column name is correct and the variable has data.
+
+========== streaming ==========
+  SKIPPING: only 0 observations / 0 subjects with non-NA values.
+  → Check that the column name is correct and the variable has data.
+
+========== gaming ==========
+  Non-NA observations: 1871 across 1391 subjects
+  Min class size threshold (5%): 70 subjects
+  Fitting 1 class(es)...
+  Fitting 2 class(es)...
+  Fitting 3 class(es)...
+  Fitting 4 class(es)...
+  Fitting 5 class(es)...
+  Fitting 6 class(es)...
+
+  Fit table for gaming:
+# A tibble: 6 × 8
+  Variable Classes LogLik   AIC   BIC SABIC Entropy Min_ClassSize
+  <chr>      <dbl>  <dbl> <dbl> <dbl> <dbl>   <dbl>         <int>
+1 gaming         1 -2598. 5204. 5225. 5212.  NA                NA
+2 gaming         2 -1972. 3959. 3996. 3973.   1                12
+3 gaming         3 -1620. 3260. 3313. 3281.   0.997             2
+4 gaming         4 -1236. 2498. 2566. 2525.   0.992             2
+5 gaming         5 -1620. 3272. 3356. 3305.   0.962             2
+6 gaming         6 -1620. 3278. 3378. 3318.   0.431             2
+  → Optimal k = 1  |  BIC improvement over k=1: 0.0 points
+  NOTE: BIC improvement < 10 — 1-class solution may be adequate.
+  Class sizes:
+assigned
+   1 
+1391 
+
+========== active_typing ==========
+  Non-NA observations: 4746 across 3847 subjects
+  Min class size threshold (5%): 193 subjects
+  Fitting 1 class(es)...
+  Fitting 2 class(es)...
+  Fitting 3 class(es)...
+  Fitting 4 class(es)...
+  Fitting 5 class(es)...
+  Fitting 6 class(es)...
+
+  Fit table for active_typing:
+# A tibble: 6 × 8
+  Variable      Classes LogLik    AIC    BIC  SABIC Entropy Min_ClassSize
+  <chr>           <dbl>  <dbl>  <dbl>  <dbl>  <dbl>   <dbl>         <int>
+1 active_typing       1 -6589. 13186. 13211. 13198.  NA                NA
+2 active_typing       2 -5537. 11087. 11131. 11109.   0.986           138
+3 active_typing       3 -5126. 10271. 10334. 10302.   0.968            57
+4 active_typing       4 -5126. 10277. 10358. 10317    0.517            57
+5 active_typing       5 -5126. 10283. 10383. 10332.   0.614            57
+6 active_typing       6 -5126. 10289. 10408. 10347.   0.299            57
+  → Optimal k = 1  |  BIC improvement over k=1: 0.0 points
+  NOTE: BIC improvement < 10 — 1-class solution may be adequate.
+  Class sizes:
+assigned
+   1 
+3847 
+
+Combined trajectory grid saved.
+
+Merging class assignments across variables...
+                                                                              
+Outputs written to: /Users/jasmine/Downloads/Thesis-Lab/ears_lcga_output
+  ears_lcga_class_assignments.csv
+  ears_lcga_model_fit_table.csv
+  lcga_bic_all_variables.png
+  lcga_trajectories_combined.png
+  lcga_trajectories_<variable>.png  (one per screen dimension)
+
+===== OPTIMAL CLASS SOLUTIONS PER VARIABLE =====
+# A tibble: 3 × 6
+# Groups:   Variable [3]
+  Variable      Classes    BIC    AIC Entropy Min_ClassSize
+  <chr>           <dbl>  <dbl>  <dbl>   <dbl>         <int>
+1 active_typing       3 10334. 10271.   0.968            57
+2 gaming              4  2566.  2498.   0.992             2
+3 total_screen        4  5047.  4979.   0.643            58
+
+===== SCRIPT COMPLETE =====
