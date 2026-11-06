@@ -1,0 +1,8 @@
+interval,stays absent,onset,remits,stays present,Total
+ses-00A -> ses-02A,10577,36,9,5,10627
+ses-00A -> ses-04A,259,2,3,0,264
+ses-00A -> ses-06A,24,1,0,0,25
+ses-02A -> ses-04A,7895,68,22,8,7993
+ses-02A -> ses-06A,488,9,0,0,497
+ses-04A -> ses-06A,2862,26,20,3,2911
+Total,22105,142,54,16,22317
